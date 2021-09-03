@@ -1,0 +1,57 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: -15px;
+  margin-left: -15px;
+  height: auto;
+  .col {
+    @for $i from 1 through 12 {
+      &-#{$i} {
+        width: 100%;
+        flex: 0 0 percentage($i / 12);
+        max-width: percentage($i / 12);
+      }
+
+      @include mq(sm) {
+        &-sm-#{$i} {
+          flex: 0 0 percentage($i / 12);
+          max-width: percentage($i / 12);
+          width: 100%;
+        }
+      }
+
+      @include mq(md) {
+        &-md-#{$i} {
+          flex: 0 0 percentage($i / 12);
+          max-width: percentage($i / 12);
+          width: 100%;
+        }
+      }
+
+      @include mq(lg) {
+        &-lg-#{$i} {
+          flex: 0 0 percentage($i / 12);
+          max-width: percentage($i / 12);
+          width: 100%;
+        }
+      }
+
+      @include mq(xl) {
+        &-xl-#{$i} {
+          flex: 0 0 percentage($i / 12);
+          max-width: percentage($i / 12);
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through 12 {
+    > div:nth-of-type(#{$i}) {
+      background: adjust-hue(green, $i * 20);
+      padding: 15px;
+    }
+  }
+}

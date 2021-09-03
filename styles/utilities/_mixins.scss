@@ -1,0 +1,21 @@
+@mixin mq($break) {
+  @if $break == "sm" {
+    @media screen and (min-width: map-get($breakpoints, sm)) {
+      @content;
+    }
+  } @else if $break == "md" {
+    @media screen and (min-width: map-get($breakpoints, md)) {
+      @content;
+    }
+  } @else if $break == "lg" {
+    @media screen and (min-width: map-get($breakpoints, lg)) {
+      @content;
+    }
+  } @else if $break == "xl" {
+    @media screen and (min-width: map-get($breakpoints, xl)) {
+      @content;
+    }
+  } @else {
+    @error "#{$break} is not a valid value!";
+  }
+}

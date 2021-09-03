@@ -1,0 +1,36 @@
+.container,
+.container-fluid {
+  width: 100%;
+  margin: 0;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.container {
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+@include mq(sm) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@include mq(md) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@include mq(lg) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@include mq(xl) {
+  .container {
+    max-width: 1140px;
+  }
+}

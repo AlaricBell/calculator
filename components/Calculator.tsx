@@ -1,13 +1,16 @@
 import type { NextPage } from 'next'
 import {useState} from 'react'
+import axios from 'axios'
 
 import ButtonCalculator from './buttons/ButtonCalculator'
 import FormCalculator from './inputs/FormCalculator'
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { 
-  faBackspace 
-} from "@fortawesome/free-solid-svg-icons";
+  faBackspace,
+  faBookmark,
+  faSave
+} from "@fortawesome/free-solid-svg-icons"
 
 const Calculator: NextPage = () => {
   const [result, setResult] = useState("")
@@ -30,6 +33,18 @@ const Calculator: NextPage = () => {
     } catch(error) {
       setResult("Error")
     }
+  }
+
+  const save = () => {
+    axios.post("/api/calculator", {
+      result
+    })
+  }
+
+  const read = () => {
+    axios.get("/api/calculator")
+    .then(res => setResult(isNaN(Number(res.data))? "Error" : res.data))
+    .catch(error => console.log(error));
   }
 
   return (
@@ -100,11 +115,17 @@ const Calculator: NextPage = () => {
       </div>  
 
       <div className="row">
-        <div className="col-4">
-          <ButtonCalculator value="1" clickHandler={handleNumber}>Save</ButtonCalculator>
+        <div className="col-2">
+          <ButtonCalculator value="0" clickHandler={handleNumber}>0</ButtonCalculator>
         </div>
-        <div className="col-4">
-          <ButtonCalculator value="1" clickHandler={handleNumber}>Read</ButtonCalculator>
+        <div className="col-2">
+          <ButtonCalculator value="." clickHandler={handleNumber}>.</ButtonCalculator>
+        </div>
+        <div className="col-2">
+          <ButtonCalculator value="" clickHandler={save}><FontAwesomeIcon icon={faSave} style={{width: '24px', height: '24px'}}/></ButtonCalculator>
+        </div>
+        <div className="col-2">
+          <ButtonCalculator value="" clickHandler={read}><FontAwesomeIcon icon={faBookmark} style={{width: '24px', height: '24px'}}/></ButtonCalculator>
         </div>
       </div>     
     </section>

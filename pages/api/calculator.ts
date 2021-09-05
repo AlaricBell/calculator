@@ -1,11 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import {writeToFile, readFromFile} from '../../lib/fileHandler'
 
-type Data = {
-  name: string
-}
-
-export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   if(req.method === 'POST') {
     return await writeToFile('test.txt', req.body.result) 
       .then(response => {

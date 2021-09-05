@@ -15,8 +15,8 @@ import {
 const Calculator: NextPage = () => {
   const [result, setResult] = useState("")
 
-  const handleNumber = (value: string) => {
-    setResult((result.toLowerCase() === "error") ? "".concat(value) : result.concat(value))
+  const handleNumber = (e: any) => {
+    setResult((result.toLowerCase() === "error") ? "".concat(e.target.name) : result.concat(e.target.name))
   }
 
   const handleDelete = () => {
@@ -62,10 +62,10 @@ const Calculator: NextPage = () => {
           <ButtonCalculator value="/" clickHandler={handleNumber}>&#247;</ButtonCalculator>
         </div>
         <div className="col-2">
-          <ButtonCalculator value="1" clickHandler={handleClear}>C</ButtonCalculator>
+          <ButtonCalculator value="clear" clickHandler={handleClear}>C</ButtonCalculator>
         </div>
         <div className="col-2">
-          <ButtonCalculator value="1" clickHandler={handleDelete}><FontAwesomeIcon icon={faBackspace} style={{width: '24px', height: '24px'}}/></ButtonCalculator>
+          <ButtonCalculator value="backspace" clickHandler={handleDelete}><FontAwesomeIcon icon={faBackspace} style={{width: '24px', height: '24px'}}/></ButtonCalculator>
         </div>
       </div>      
 
@@ -110,7 +110,7 @@ const Calculator: NextPage = () => {
           <ButtonCalculator value="3" clickHandler={handleNumber}>3</ButtonCalculator>
         </div>
         <div className="col-2">
-          <ButtonCalculator value="1" clickHandler={Calculate}>&#61;</ButtonCalculator>
+          <ButtonCalculator value="calc" clickHandler={Calculate}>&#61;</ButtonCalculator>
         </div>
       </div>  
 
@@ -122,10 +122,10 @@ const Calculator: NextPage = () => {
           <ButtonCalculator value="." clickHandler={handleNumber}>.</ButtonCalculator>
         </div>
         <div className="col-2">
-          <ButtonCalculator value="" clickHandler={save}><FontAwesomeIcon icon={faSave} style={{width: '24px', height: '24px'}}/></ButtonCalculator>
+          <ButtonCalculator value="save" clickHandler={save}><FontAwesomeIcon icon={faSave} style={{width: '24px', height: '24px'}}/></ButtonCalculator>
         </div>
         <div className="col-2">
-          <ButtonCalculator value="" clickHandler={read}><FontAwesomeIcon icon={faBookmark} style={{width: '24px', height: '24px'}}/></ButtonCalculator>
+          <ButtonCalculator value="read" clickHandler={read}><FontAwesomeIcon icon={faBookmark} style={{width: '24px', height: '24px'}}/></ButtonCalculator>
         </div>
       </div>     
     </section>

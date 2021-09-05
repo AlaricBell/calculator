@@ -612,11 +612,4 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-.card {
-  height: 100%;
-  width: 100%;
-  background: #fff;
-  text-align: center;
-}
 /*# sourceMappingURL=style.css.map */

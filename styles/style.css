@@ -591,6 +591,7 @@ input:hover, input:active, input:focus {
   padding: 0.75rem;
   background: #fff;
   font-size: 18px;
+  color: #0d0d0d;
 }
 
 .btn-calc:hover {
@@ -605,6 +606,8 @@ input:hover, input:active, input:focus {
   background-color: #bec7c7;
   padding: 0.45rem 0.25rem;
   font-size: 18px;
+  font-weight: 600;
+  color: #0d0d0d;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
